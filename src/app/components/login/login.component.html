@@ -1,0 +1,90 @@
+<div class="login-container">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <i class="fas fa-exchange-alt fa-3x text-primary mb-3"></i>
+              <h2 class="h4 mb-0">Iniciar Sesión</h2>
+              <p class="text-muted">Accede a tu cuenta</p>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Usuario</label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <input
+                    type="text"
+                    id="username"
+                    formControlName="username"
+                    class="form-control"
+                    [class.is-invalid]="submitted && f['username'].errors"
+                    placeholder="Ingrese su usuario">
+                </div>
+                <div *ngIf="submitted && f['username'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['username'].errors['required']">El usuario es requerido</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                  <input
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    class="form-control"
+                    [class.is-invalid]="submitted && f['password'].errors"
+                    placeholder="Ingrese su contraseña">
+                </div>
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['password'].errors['required']">La contraseña es requerida</div>
+                </div>
+              </div>
+
+              <div *ngIf="error" class="alert alert-danger" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                {{ error }}
+              </div>
+
+              <div class="d-grid mb-3">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg"
+                  [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  <i *ngIf="!loading" class="fas fa-sign-in-alt me-2"></i>
+                  {{ loading ? 'Iniciando sesión...' : 'Iniciar Sesión' }}
+                </button>
+              </div>
+            </form>
+
+            <div class="mt-4 p-3 bg-light rounded">
+              <h6 class="mb-3">
+                <i class="fas fa-info-circle me-2"></i>
+                Credenciales de prueba:
+              </h6>
+              <div class="row">
+                <div class="col-6">
+                  <p class="mb-1"><strong>Usuario:</strong></p>
+                  <p class="text-primary">luis</p>
+                </div>
+                <div class="col-6">
+                  <p class="mb-1"><strong>Contraseña:</strong></p>
+                  <p class="text-primary">luis123</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

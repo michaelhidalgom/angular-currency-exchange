@@ -1,0 +1,123 @@
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #e3e6f0;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group-text {
+  background-color: #f8f9fc;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  color: #6c757d;
+}
+
+.input-group .form-control {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #6c757d;
+  transform: none;
+  box-shadow: none;
+}
+
+.bg-light {
+  background-color: #f8f9fc !important;
+  border: 1px solid #e3e6f0;
+}
+
+.text-muted {
+  color: #858796 !important;
+}
+
+.text-primary {
+  color: #667eea !important;
+  font-weight: 600;
+}
+
+.fa-exchange-alt {
+  color: #667eea;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  border-radius: 0.5rem;
+}
+
+.invalid-feedback.d-block {
+  display: block !important;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Animaciones */
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .login-container {
+    padding: 10px;
+  }
+}
