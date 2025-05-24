@@ -1,11 +1,28 @@
+/* ACTUALIZAR en currency-exchange.component.css */
+
+/* Cambiar el header del card de azul a gris oscuro */
+.card-header {
+  background-color: #495057 !important;
+  color: white !important;
+  border-radius: 1rem 1rem 0 0;
+  border: none;
+  border-bottom: 2px solid #343a40;
+}
+
+/* Asegurar que el título y el ícono sean blancos */
+.card-header h4 {
+  color: white !important;
+  margin-bottom: 0;
+}
+
+.card-header i {
+  color: white !important;
+}
+
+/* Mantener los demás estilos existentes */
 .card {
   border: none;
   border-radius: 1rem;
-}
-
-.card-header {
-  border-radius: 1rem 1rem 0 0;
-  border: none;
 }
 
 .form-control, .form-select {
