@@ -2,21 +2,21 @@
   <div class="row">
     <div class="col-12">
       <div class="card shadow-sm">
-        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
-          <h4 class="mb-0">
+        <div class="card-header bg-white border-bottom-0 d-flex justify-content-between align-items-center">
+          <h4 class="mb-0 text-dark">
             <i class="fas fa-history me-2"></i>
             Historial de Intercambios
           </h4>
           <button
             type="button"
-            class="btn btn-light btn-sm"
+            class="btn btn-primary btn-sm"
             (click)="refreshHistory()"
             [disabled]="loading">
-            <i class="fas fa-sync-alt" [class.fa-spin]="loading"></i>
+            <i class="fas fa-sync-alt me-1" [class.fa-spin]="loading"></i>
             Actualizar
           </button>
         </div>
-        <div class="card-body">
+        <div class="card-body p-0">
           <!-- Estado de carga -->
           <div *ngIf="loading" class="loading">
             <div class="spinner-border text-primary" role="status">
@@ -26,7 +26,7 @@
           </div>
 
           <!-- Error -->
-          <div *ngIf="error" class="alert alert-danger" role="alert">
+          <div *ngIf="error" class="alert alert-danger m-3" role="alert">
             {{ error }}
           </div>
 
@@ -43,10 +43,10 @@
 
           <!-- Tabla de historial -->
           <div *ngIf="!loading && !error && exchanges.length > 0" class="table-responsive">
-            <table class="table table-striped table-hover">
-              <thead class="table-dark">
+            <table class="table table-hover mb-0">
+              <thead class="table-light">
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col" class="text-center">#</th>
                   <th scope="col">Monto Original</th>
                   <th scope="col">Moneda Origen</th>
                   <th scope="col">Monto Convertido</th>
@@ -56,43 +56,22 @@
               </thead>
               <tbody>
                 <tr *ngFor="let exchange of exchanges; let i = index">
-                  <th scope="row">{{ i + 1 }}</th>
+                  <td class="text-center">{{ i + 1 }}</td>
+                  <td>{{ exchange.monto | number:'1.2-2' }}</td>
                   <td>
-                    <span class="fw-bold">{{ exchange.monto | number:'1.2-2' }}</span>
+                    <span class="badge bg-info text-dark">{{ exchange.monedaOrigen }}</span>
                   </td>
-                  <td>
-                    <span class="badge bg-primary">{{ exchange.monedaOrigen }}</span>
-                  </td>
-                  <td>
-                    <span class="fw-bold text-success">{{ exchange.montoCambio | number:'1.2-2' }}</span>
-                  </td>
+                  <td>{{ exchange.montoCambio | number:'1.2-2' }}</td>
                   <td>
                     <span class="badge bg-success">{{ exchange.monedaDestino }}</span>
                   </td>
-                  <td>
-                    <span class="badge bg-info">{{ exchange.tipoCambio | number:'1.4-4' }}</span>
-                  </td>
+                  <td>{{ exchange.tipoCambio | number:'1.4-4' }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Resumen -->
-          <div *ngIf="exchanges.length > 0" class="mt-4">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card bg-light">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">
-                      <i class="fas fa-calculator text-primary"></i>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Total de Intercambios</h6>
-                    <h4 class="card-text text-primary">{{ exchanges.length }}</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
